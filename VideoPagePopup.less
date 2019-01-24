@@ -1,0 +1,56 @@
+.VideoPage {
+  @media @mq-viewport-xxs-only, @mq-viewport-xs-only {
+    [data-headline] {
+      display: none;
+    }
+
+    &[data-videopage-popup] {
+      [data-videopage-popup-banner] {
+        display: flex;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 999;
+        padding: 10px;
+        background: #efefef;
+        min-height: 93px;
+        max-height: 93px;
+
+        [data-headline] {
+          display: block;
+          margin-left: 10px;
+
+          &:before {
+            display: inline-block;
+            content: attr(data-headline);
+            .getFontSecondary(700, 14);
+            line-height: 1.29;
+            color: #000000;
+          }
+        }
+      }
+
+      [data-videopage-popup-banner] .VideoPage {
+        &-player {
+          width: 100%;
+          max-width: 130px;
+          min-width: 130px;
+          margin: 0;
+          padding: 0;
+          float: left;
+
+          .CraftsyMiniPlayer;
+        }
+      }
+
+      @media only screen and (max-width: 320px) {
+        [data-videopage-popup-banner] .VideoPage {
+          &-player {
+            max-width: 100px;
+          }
+        }
+      }
+    }
+  }
+}

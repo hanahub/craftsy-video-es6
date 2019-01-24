@@ -1,0 +1,40 @@
+.VideoLead {
+  &:extend(.VideoStatusStyles all);
+  @maxHeight: 480px;
+  background: var(--black);
+  position: relative;
+  z-index: 1;
+
+  &-image {
+    z-index: 99;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    pointer-events: all !important; // lesshint importantRule: false
+
+    img {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      display: block;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  div&-player {
+    max-width: (@maxHeight * 16) / 9; // get ratio to maxHeight
+    top: 0;
+  }
+
+  &-headline:not(:empty) {
+    display: block;
+  }
+
+  &-player {
+    position: relative;
+  }
+}

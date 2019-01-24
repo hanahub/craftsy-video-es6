@@ -1,0 +1,54 @@
+.VideoPage {
+  .BookmarkForm {
+    form {
+      display: none;
+      margin: auto;
+    }
+
+    &[data-videopage-popup-view='true'] {
+      .BookmarkForm {
+        &-form {
+          display: block;
+        }
+      }
+    }
+  }
+
+  @media @mq-viewport-sm {
+    .BookmarkForm {
+      &[data-videopage-popup-view='true'] {
+        display: flex;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.3);
+        z-index: 99;
+      }
+    }
+  }
+
+  @media @mq-viewport-xxs-only, @mq-viewport-xs-only {
+    .BookmarkForm {
+      &[data-videopage-popup-view='true'] {
+        position: fixed;
+        top: 93px;
+        bottom: 0;
+        background: white;
+        left: 0;
+        right: 0;
+        z-index: 99;
+        padding: 20px;
+      }
+    }
+  }
+
+  .BookmarkForm {
+    @media @mq-viewport-nonportable {
+      &-form {
+        max-width: 388px;
+      }
+    }
+  }
+}

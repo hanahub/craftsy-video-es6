@@ -1,0 +1,379 @@
+.TimeComments {
+  &-form {
+    background: @color-white;
+    position: relative;
+    box-shadow: 0 7px 7px -3px rgba(0, 0, 0, 0.07);
+    display: flex;
+    flex-wrap: wrap;
+
+    textarea {
+      flex-grow: 1;
+      appearance: none;
+      border: solid 1px #d8d8d8;
+      .getFontSecondary(400, 18);
+      line-height: 1.67;
+      letter-spacing: 0.6px;
+      color: #000000;
+      padding: 8px;
+      height: 50px;
+      resize: vertical;
+    }
+  }
+
+  &-commentsControls {
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+    width: 100%;
+
+    h5 {
+      .getFontSecondary(700, 12);
+      line-height: 1.33;
+      letter-spacing: 0.4px;
+      color: black;
+      text-transform: uppercase;
+    }
+
+    button[type='submit'] {
+      .TimeCommentForm--smallSubmitButton();
+    }
+  }
+
+  &-postButtonTitle {
+    margin: 0px 10px 3px 0px;
+  }
+
+  &-scrollControl {
+    margin-left: auto;
+
+    input {
+      display: none;
+    }
+
+    input + span {
+      color: black;
+      display: flex;
+      align-items: center;
+      .getFontSecondary(400, 12);
+      line-height: 1.33;
+      letter-spacing: 0.4px;
+
+      &:after {
+        content: '';
+        display: inline-block;
+        border: solid 1px var(--greyish);
+        width: 24px;
+        height: 24px;
+        margin-left: 10px;
+        font-size: 18px;
+        text-align: center;
+      }
+    }
+
+    input:checked + span:after {
+      content: '✔';
+    }
+  }
+}
+
+@media @mq-viewport-sm {
+  .TimeComments {
+    &-form {
+      position: relative;
+      box-shadow: 0 7px 7px -3px rgba(0, 0, 0, 0.07);
+      padding: 30px calc(~'(100% - @{maxW}) / 2') 20px;
+
+      .MultiCheckboxControl {
+        .MultiCheckboxControl--LargeCommentView();
+      }
+
+      h4,
+      [data-videopage-popup-cancel],
+      [data-videopage-popup-submit] {
+        display: none;
+      }
+
+      textarea[name='body'] {
+        border: 0;
+        border-bottom: solid 1px #d8d8d8;
+        min-width: 100%;
+      }
+
+      &-actions {
+        min-width: 100%;
+        margin-top: 16px;
+        display: flex;
+        position: relative;
+      }
+    }
+  }
+}
+
+@media @mq-viewport-xxs-only, @mq-viewport-xs-only {
+  .TimeComments {
+    &-avatar {
+      display: none;
+    }
+
+    &-commentsControls {
+      margin-top: 0px;
+    }
+
+    &-form {
+      display: block;
+
+      padding: 10px 14px 10px 30px;
+      left: -15px;
+      right: 0;
+      position: absolute;
+
+      &.fixed {
+        background: @color-white;
+        position: fixed;
+        z-index: 98;
+      }
+
+      .MultiCheckboxControl {
+        .MultiCheckboxControl--SmallCommentView();
+        margin-bottom: 20px;
+      }
+
+      h4 {
+        .getFontSecondary(700, 16);
+        letter-spacing: 1px;
+        color: #000000;
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 20px;
+
+        &:before {
+          display: inline-block;
+          content: url('/styleguide/assets/icons/commentPost.svg');
+          margin-right: 12px;
+          transform: translateY(4px);
+        }
+      }
+
+      textarea[name='body'] {
+        display: block;
+        width: 100%;
+        height: calc(~'100vh - 390px');
+        padding-bottom: 50px;
+        margin-bottom: 10px;
+      }
+
+      .SmallFileUploadInput {
+        margin-top: -50px;
+        float: right;
+        margin-right: 20px;
+        flex-direction: row-reverse;
+      }
+    }
+  }
+
+
+  .TimeComments {
+    &-form:not([data-videopage-popup-view='true']) {
+      h4,
+      input,
+      textarea,
+      .SmallFileUploadInput,
+      .MultiCheckboxControl,
+      [data-videopage-popup-cancel],
+      [data-videopage-popup-submit] {
+        display: none;
+      }
+
+      &-actions {
+        margin: 0;
+      }
+    }
+  }
+
+  .TimeComments {
+    &-form[data-videopage-popup-view='true'] {
+      display: block;
+      position: fixed;
+      top: 93px!important; // lesshint importantRule: false
+      bottom: 0;
+      background: white;
+      left: 0;
+      right: 0;
+      z-index: 99;
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    &-form[data-videopage-popup-view='true'] & {
+      &-commentsControls {
+        display: none;
+      }
+    }
+
+    &-form[data-videopage-popup-view='true'] &-form {
+      &-actions {
+        button {
+          .PromoButtonSpacingAndTypography;
+          margin-top: 10px;
+          margin-bottom: 10px;
+          width: 100%;
+
+          &[data-videopage-popup-submit] {
+            margin-bottom: 0px;
+            background-color: @color-white;
+          }
+        }
+      }
+    }
+  }
+}
+
+.TimeCommentForm--smallSubmitButton() {
+  border-radius: 2px;
+  background-color: #ffffff;
+  border: solid 1px #e6e6e6;
+  .getFontSecondary(700, 14);
+  line-height: 1.29;
+  letter-spacing: 0.8px;
+  color: #000000;
+  float: right;
+  margin-right: 0px;
+  text-transform: uppercase;
+  position: relative;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  padding: 4px 13px;
+  margin-left: auto;
+
+  &:after {
+    content: url('/styleguide/assets/icons/commentPost.svg');
+    display: inline-block;
+    width: 21px;
+    height: 19px;
+  }
+}
+
+.MultiCheckboxControl--bothCommentViews() {
+  input {
+    display: none;
+  }
+
+}
+
+.MultiCheckboxControl--SmallCommentView() {
+  .MultiCheckboxControl--bothCommentViews();
+  margin: 0;
+
+  input {
+    display: none;
+
+    &:checked ~ .MultiCheckboxControlItem-description {
+      &:after {
+        content: '✔';
+      }
+    }
+  }
+
+  .MultiCheckboxControlItem-description {
+    width: 100%;
+    display: flex;
+
+    &-label {
+      flex-grow: 1;
+    }
+  }
+}
+
+.MultiCheckboxControl--LargeCommentView() {
+  .MultiCheckboxControl--bothCommentViews();
+  .MultiCheckboxControl--UnDropdown();
+  flex-grow: 1;
+  margin-bottom: 40px;
+
+  &-items {
+    &-item {
+      flex-grow: 1;
+    }
+  }
+
+  input {
+    display: none;
+
+    &:checked ~ .MultiCheckboxControlItem-description {
+      color: black;
+      box-shadow: inset 0px -4px black;
+    }
+
+    &[value] + div .MultiCheckboxControlItem-description-label {
+      display: flex;
+      justify-content: center;
+      height: 34px;
+
+      &:after {
+        margin-left: 5px;
+      }
+    }
+
+    &[value='comment'] + div .MultiCheckboxControlItem-description-label {
+      &:after {
+        content: url('/styleguide/assets/icons/commentPost.svg');
+        width: 21px;
+        height: 19px;
+      }
+    }
+
+    &[value='question'] + div .MultiCheckboxControlItem-description-label {
+      &:after {
+        content: url('/styleguide/assets/icons/question.svg');
+        width: 20px;
+        height: 19px;
+      }
+    }
+
+    &[value='project'] + div .MultiCheckboxControlItem-description-label {
+      &:after {
+        content: url('/styleguide/assets/icons/project.svg');
+        width: 23px;
+        height: 17px;
+      }
+    }
+
+    &[value='review'] + div .MultiCheckboxControlItem-description-label {
+      &:after {
+        content: url('/styleguide/assets/icons/review.svg');
+        width: 21px;
+        height: 18px;
+      }
+    }
+  }
+
+  .MultiCheckboxControlItem-description {
+    .getFont(700, 12);
+    letter-spacing: 0.6px;
+    color: var(--greyish-font-color);
+    text-transform: capitalize;
+    box-shadow: inset 0px -1px var(--greyish);
+    width: 100%;
+
+    &-label {
+      text-align: center;
+    }
+  }
+}
+
+@media @mq-viewport-xxs-only {
+  .TimeComments {
+    &-postButtonTitle {
+      display: none;
+    }
+  }
+}
+
+/* @media @mq-viewport-md {*/
+  .TimeComments {
+    &-scrollControl {
+      display: none;
+    }
+  }
+/* } */

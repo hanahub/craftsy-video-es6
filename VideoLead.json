@@ -1,0 +1,19 @@
+{
+  "_include": "_SourceVideoLead.json",
+  "videoPoster": {
+    "image": {
+      "_template": "/core/image/Image.hbs",
+      "image": {
+          "_image": true
+      }
+    }
+  },
+  "videoPosterMobile": {
+    "image": {
+      "_template": "/core/image/Image.hbs",
+      "image": {
+          "_image": true
+      }
+    }
+  }
+}

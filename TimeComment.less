@@ -1,0 +1,106 @@
+.TimeComment {
+  border-bottom: 1px solid #d8d8d8;
+  display: block;
+
+  &:first-of-type {
+    padding-top: 50px;
+  }
+
+  &[data-timecomments-newest-at-time] ~ &,
+  &[data-timecomments-newest-at-time] ~ [data-request-moretimecomments] {
+    display: none;
+  }
+
+  &[data-timecomments-newest-at-time] + [data-request-moretimecomments] {
+    display: block;
+  }
+
+  &-main,
+  &-community {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    width: 100%;
+  }
+
+  &-authorImage {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 21px;
+  }
+
+  &-authorName {
+    .getFont(700, 14);
+    letter-spacing: -0.1px;
+    color: #4a4a4a;
+  }
+
+  &-image {
+    background: #f7f7f7;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+
+    img {
+      margin: auto;
+    }
+  }
+
+  &-body,
+  &-community {
+    min-width: 100%;
+  }
+
+  &-body {
+    margin-top: 14px;
+    .getFont(400, 14);
+    letter-spacing: 1px;
+    color: #4a4a4a;
+  }
+
+  &-playerTimestamp {
+    .getFont(400, 14);
+    letter-spacing: 1px;
+    color: #acacac;
+    margin-left: auto;
+  }
+
+  &-community {
+    &[data-timecomment-replies='0'] {
+      > h6 {
+        display: none;
+      }
+    }
+
+    .ActionBarTimeComment {
+      display: flex;
+      margin-left: auto;
+    }
+
+    &-reply {
+      display: block;
+      width: auto;
+      margin-left: 5px;
+      padding: 3px 10px;
+      cursor: pointer;
+
+      &:after {
+        content: '';
+        display: inline-block;
+        background-repeat: no-repeat;
+      }
+    }
+
+    &-reply {
+      &:after {
+        background-image: url('/styleguide/assets/icons/comment.svg');
+        background-position: 3px 3px;
+        background-size: 20px 20px;
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+}

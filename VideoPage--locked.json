@@ -1,0 +1,102 @@
+{
+  "_include": "/core/video/VideoPage.json",
+
+
+  "navigation": {
+    "_include": "/core/navigation/Navigation--guest.json"
+  },
+
+
+  "player": {
+    "_include": "/craftsy/CraftsyVideoPlayer.json",
+    "videoMask": true
+  },
+  "headline": "Title goes here lorem ipsum dolor sit amet, con sectetur adipiscing lorem",
+  "subHeadline": "Completely new to colored pencils? Join illustrator Susan Rubin as she helps you navigate the basics from choosing the best beginner-friendly supplies to completing four drawing projects: a pear, leaf, persimmon and tulip. With Susan’s techniques and step-by-step guidance, you’ll soon be creating your own colored pencil drawings with confidence!",
+  "actions": {
+    "_template": "/core/action-bar/ActionBar.hbs",
+    "items": [
+      {
+        "_include": "/community/favorite/FavoriteButton.json"
+      },
+      {
+        "_include": "/twitter/intent/TwitterTweetButton.json"
+      },
+      {
+        "_include": "/googleplus/GooglePlusShareButton.json"
+      },
+      {
+        "_include": "/pinterest/PinterestShareButton.json"
+      },
+      {
+        "_include": "/linkedin/LinkedInShareButton.json"
+      }
+    ]
+  },
+  "people": [
+    {
+      "_include": "/core/promo/AuthorPromo.json",
+      "title": "Omavi",
+      "type": "Photography Instructor",
+      "_repeat": 1
+    }
+  ],
+  "relatedPlaylists": {
+    "_include": "/core/list/ListThreeColumnGrid.json",
+    "title": "Related Playlists"
+  },
+  "relatedArticles": {
+    "_include": "/core/list/ListThreeColumnGrid.json",
+    "title": "Related Articles"
+  },
+  "materialLinks": [
+    {
+      "_include": "/core/link/FileLink.json",
+      "_repeat": 3
+    }
+  ],
+  "tags": [
+    {
+      "_include": "/core/link/Link.json",
+      "_repeat": 5
+    },
+    {
+      "_include": "/core/link/Link.json",
+      "href": null
+    }
+  ],
+  "materialModules": [
+    {
+      "_include": "/core/list/List.json",
+      "title": "Extra Material Module 1",
+      "items": [
+        {
+          "_include": "/core/promo/Promo.json",
+          "url": "/core/article/Article.html",
+          "_repeat": 4
+        }
+      ]
+    },
+    {
+      "_include": "/core/list/ListThreeColumnGridSquares.json",
+      "title": "Extra Material Module 2",
+      "items": [
+        {
+          "_include": "/core/promo/Promo.json",
+          "url": "/core/article/Article.html",
+          "_repeat": 4
+        }
+      ]
+    }
+  ],
+  "below": {
+    "_include": "/core/list/ListTwoColumnGrid.json",
+    "title": "Extra Below Module",
+    "items": [
+      {
+        "_include": "/core/promo/PromoImageOnSide-medium.json",
+        "_repeat": "6"
+      }
+    ]
+  }
+}

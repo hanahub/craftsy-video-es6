@@ -1,0 +1,214 @@
+
+.PlaylistItem {
+  display: block;
+  margin-top: 0;
+  border-top: 0;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #ebebeb;
+  padding: 0;
+  font-size: 0px;
+
+  @padHorizontal: 13px;
+
+  &-type {
+    display: none;
+  }
+
+  [data-timeobjectlist]:empty {
+    display: none;
+  }
+
+  &-title {
+    line-height: 1.33;
+    letter-spacing: normal;
+    .getFontSecondary(700, 15);
+    color: black;
+
+    a {
+      line-height: 1.33;
+      letter-spacing: normal;
+      .getFontSecondary(700, 15);
+    }
+  }
+
+  &-media {
+    display: block;
+    margin: 0px 16px 0px 0px;
+    max-width: 160px;
+  }
+
+  &-duration {
+    .getFontSize(14);
+    letter-spacing: 1px;
+    display: block;
+  }
+
+  &-lead {
+    padding: 16px @padHorizontal;
+    position: relative;
+
+    [data-playlistitemactive='true'] & {
+      padding: 16px @padHorizontal 16px 7px;
+      border-left: 5px solid #4d4d4d;
+      background: @color-white;
+    }
+  }
+
+  &[data-timeobjectscount] {
+    [data-playlistitem-toggler] {
+      display: block;
+    }
+  }
+
+  [data-playlistitem-toggler] {
+    display: none; // block when item has data-timeobjectscount
+    float: right;
+    border: 0;
+    @size: 40px;
+    height: @size;
+    margin-top: -@size;
+    min-width: @size;
+    text-align: right;
+    margin-right: 10px;
+
+    &:after {
+      content: '\2303';
+      .getFontSize(24);
+      line-height: 1;
+      font-weight: 700;
+      transform: rotate(180deg);
+      display: inline-block;
+      transition: transform 500ms ease;
+    }
+  }
+
+  &[data-playlistitem-expanded] {
+    [data-playlistitem-toggler]:after {
+      transform: rotate(0deg);
+    }
+
+    [data-timeobjectlist] {
+      max-height: 1000px;
+      background: @color-white;
+    }
+  }
+
+  [data-timeobjectlist] {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 500ms ease;
+
+    li {
+      padding-left: @padHorizontal;
+      padding-right: @padHorizontal;
+    }
+
+    [data-playlistitemactive='true'] & {
+      background: @color-white;
+      display: block;
+    }
+  }
+
+  &:first-child {
+    border-top: 1px solid #ebebeb;
+  }
+
+  &-companions-heading {
+    .getFont(700, 12);
+    letter-spacing: 0.8px;
+    color: var(--brownish-grey);
+    text-transform: uppercase;
+  }
+
+  &[data-playlistitemactive] &-status {
+    padding: 6px 17px;
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.59);
+    position: absolute;
+    bottom: 0;
+
+    &:before {
+      content: 'playing';
+      text-transform: capitalize;
+      .getFont(600, 13);
+      letter-spacing: 0.2px;
+      color: #ffffff;
+      display: flex;
+    }
+  }
+
+  &[data-playlistitemactive='true'] &-status {
+    &:before {
+      content: 'playing';
+    }
+  }
+
+  &[data-playlistitemplaying='false'] &-status {
+    &:before {
+      content: 'on now';
+    }
+  }
+
+  &[data-locked] {
+    @lockIconWidth: 32px;
+    @lockIconHeight: 38px;
+
+    .PlaylistItem-media {
+      &:before {
+        content: '';
+        display: block;
+        width: @lockIconWidth;
+        height: @lockIconHeight;
+        position: absolute;
+        left: 50%;
+        margin-left: -@lockIconWidth / 2;
+        top: 50%;
+        margin-top: -@lockIconHeight / 2;
+        background-image: url('/styleguide/assets/media/lock.svg');
+      }
+
+      // hide play icon
+      .PlaylistItem-type {
+        display: none;
+      }
+    }
+
+  }
+
+  @media @mq-viewport-lg {
+    @padHorizontal: 24px;
+
+    &-lead {
+      padding: 20px @padHorizontal;
+
+      [data-playlistitemactive='true'] & {
+        padding: 20px @padHorizontal 0px @padHorizontal;
+        border-left: 0;
+      }
+    }
+
+    &-title {
+      .getFontSize(18);
+      letter-spacing: 0.5px;
+      line-height: 1.06 !important; // lesshint importantRule: false
+
+      a {
+        .getFontSize(18);
+        letter-spacing: 0.5px;
+        line-height: 1.06;
+      }
+    }
+
+    [data-timeobjectlist] {
+      li {
+        padding-left: @padHorizontal;
+        padding-right: @padHorizontal;
+      }
+    }
+
+    &-media {
+      max-width: 197px;
+      min-width: 197px;
+    }
+  }
+}

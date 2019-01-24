@@ -1,0 +1,35 @@
+[data-timeobjectlist] { // js generated list
+  > li {
+    @padVertical: 12px;
+    .getFont(400, 14);
+    line-height: 1.5;
+    letter-spacing: 1px;
+    color: var(--greyish-font-color);
+    border-top: solid 1px #ebebeb;
+    display: flex;
+    padding-top: @padVertical;
+    padding-bottom: @padVertical;
+
+    &:first-child {
+      border-top: 0;
+    }
+
+    &:before {
+      content: '';
+      display: inline-block;
+      width: 19px;
+      height: 19px;
+      margin-right: 5px;
+    }
+
+    &[data-playlisttimeobject-newest-at-time] {
+      color: black;
+      font-weight: 700;
+
+      &:before {
+        content: '► ';
+        transform: scaleY(1.1) translateY(-1px);
+      }
+    }
+  }
+}

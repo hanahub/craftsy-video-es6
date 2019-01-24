@@ -1,0 +1,69 @@
+{{#block "VideoPage" override="_SourceVideoPage.hbs"}}
+  {{#element "companionScreen" noWith=true}}
+    <div class="CompanionScreen">
+        <div class="CompanionScreen-controls">
+            <div class="CompanionScreen-controls-closeButton"><span>CLOSE</span><svg class="close-x"><use xlink:href="#close-x"/></svg></div>
+        </div>
+
+        <section class="CompanionScreen-content"></section>
+        {{include "/utils/LoadingIcon.hbs"}}
+    </div>
+  {{/element}}
+
+
+  {{#element "media" noWith=true}}
+      <div class="{{elementName}}" data-contains-embedded-video>
+          {{#if placeholderImage}}
+              <div class="{{blockName}}-image" data-contains-embedded-video-trigger>
+                  {{placeholderImage}}
+              </div>
+          {{/if}}
+          <div class="{{blockName}}-player" data-video-experience="bluprint.vpe">
+              {{player}}
+          </div>
+          <div class="{{blockName}}-info">
+              {{element "headline"}}
+          </div>
+      </div>
+  {{/element}}
+
+  {{#element "people"}}
+    <div class="{{elementName}}">
+      {{#each this}}
+        {{render this [/core/promo/Promo.hbs]="/core/promo/AuthorPromo.hbs"}}
+      {{/each}}
+    </div>
+  {{/element}}
+
+  {{#element "tags"}} <!-- should likely use a new TagList style-->
+    <div class="{{blockName}}-tags">
+      {{include "/core/list/TagListAlt.hbs" items=this title="tags"}}
+    </div>
+  {{/element}}
+
+  {{#element "relatedPlaylists"}}
+    {{render this [/core/list/List.hbs]="/core/list/ListThreeColumnGrid.hbs"}}
+  {{/element}}
+
+  {{#element "materialLinks"}}
+    <ul class="{{elementName}}">
+      {{#each this}}
+        <li class="{{elementName}}-item">
+          {{render this [/core/link/Link.hbs]="/core/link/FileLink.hbs"}}
+        </li>
+      {{/each}}
+    </ul>
+  {{/element}}
+
+  {{#element "relatedArticles"}}
+    {{render this [/core/list/List.hbs]="/core/list/ListThreeColumnGrid.hbs"}}
+  {{/element}}
+
+  {{#element "materialModules"}}
+    <div class="{{elementName}}">
+      {{#each this}}
+        {{render this [/core/list/List.hbs]="/core/list/ListThreeColumnGrid.hbs"}}
+      {{/each}}
+    </div>
+  {{/element}}
+{{/block}}

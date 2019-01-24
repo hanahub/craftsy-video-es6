@@ -1,0 +1,16 @@
+{{#block "VideoModule" extend="_SourceVideoModule.hbs"}}
+    <div class="{{blockName}}">
+        {{element "title"}}
+
+        <div class="{{blockName}}-body">
+
+            {{#element "player"}}
+                <div class="{{elementName}}" data-video-experience="bluprint.videoModule">{{this}}</div>
+            {{/element}}
+
+            {{element "playlist"}}
+        </div>
+
+        {{element "cta"}}
+    </div>
+{{/block}}

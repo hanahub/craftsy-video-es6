@@ -1,0 +1,65 @@
+.TimeCommentReplies {
+  @pad: 20px;
+
+  &.show {
+    background: #f7f7f7;
+    border-top: 1px solid #d8d8d8;
+  }
+
+  &.show &-form,
+  &.show &-items {
+    display: block;
+  }
+
+  &-contents {
+    width: 100%;
+    padding-left: @pad;
+    padding-right: @pad;
+  }
+
+  &-items {
+    padding-top: @pad;
+  }
+
+  &-form,
+  &-items {
+    display: none;
+  }
+
+  &-form {
+    clear: both;
+
+    &-actions {
+      display: flex;
+
+      button {
+        margin-left: auto;
+        .TimeCommentForm--smallSubmitButton();
+      }
+    }
+
+    textarea {
+      .getFontSecondary(400, 14);
+      line-height: 2.14;
+      letter-spacing: 0.6px;
+      color: black;
+      appearance: none;
+      background: transparent;
+      height: 46px;
+      width: 100%;
+      border: 0;
+      border-bottom: solid 1px black;
+      padding: 10px 3px 6px 3px;
+    }
+  }
+
+  &-time {
+    font-family: Arial;
+  }
+
+  &-count {
+    cursor: pointer;
+  }
+
+  .TimeComments--LoadMore();
+}

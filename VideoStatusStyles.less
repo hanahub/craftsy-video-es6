@@ -1,0 +1,29 @@
+.VideoStatusStyles {
+  &-image,
+  &-image[data-contains-embedded-video-trigger],
+  &-info {
+    [data-plyrhelper-state='timeupdate'] &,
+    [data-plyrhelper-state='playing'] &,
+    [data-plyrhelper-state='paused'] &,
+    [data-plyrhelper-state='ended'] &,
+    [data-plyrhelper-state='waiting'] & {
+      display: none;
+    }
+  }
+
+  &-info {
+    [data-plyrhelper-state='ready'] & {
+      pointer-events: all;
+    }
+  }
+}
+
+.VideoStatusStyles--hideOverlayRules(@rules) {
+  [data-plyrhelper-state='timeupdate'],
+  [data-plyrhelper-state='playing'],
+  [data-plyrhelper-state='paused'],
+  [data-plyrhelper-state='ended'],
+  [data-plyrhelper-state='waiting'] {
+    @rules();
+  }
+}
