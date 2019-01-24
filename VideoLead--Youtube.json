@@ -1,7 +1,0 @@
-{
-  "_include": "/core/video/VideoLead.json",
-
-  "player": {
-    "_include": "/youtube/YouTubeVideoPlayer.json"
-  }
-}
